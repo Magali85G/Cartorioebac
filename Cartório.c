@@ -1,7 +1,7 @@
-#include <stdio.h> //biblioteca de comunicaÃ§Ã£o com o usuÃ¡rio
-#include <stdlib.h> //biblioteca de alocaÃ§Ã£o de espaÃ§o em memÃ³ria
-#include <locale.h> //biblioteca de alocaÃ§Ã£o de texto por regiÃ£o
-#include <string.h> //biblioteca responsÃ¡vel por cuidar das strings
+#include <stdio.h> //biblioteca de comunicação com o usuário
+#include <stdlib.h> //biblioteca de alocação de espaço em memória
+#include <locale.h> //biblioteca de alocação de texto por região
+#include <string.h> //biblioteca responsável por cuidar das strings
 
 int registro()
 {
@@ -14,11 +14,11 @@ int registro()
 	printf("Digite o cpf a ser cadastrado: ");
 	scanf("%s", cpf);
 	
-	strcpy(arquivo, cpf); //ResponsÃ¡vel por copiar os valores das strings
+	strcpy(arquivo, cpf); //Responsável por copiar os valores das strings
 	
 	FILE *file; // Cria o arquivo de dados
 	file = fopen(arquivo, "w");
-	fprintf(file,cpf); // Salvo o valor da variÃ¡vel
+	fprintf(file,cpf); // Salvo o valor da variável
 	fclose(file); // Fecha o arquivo
 
 	file = fopen(arquivo, "a");
@@ -69,13 +69,13 @@ int consulta()
 	
 	if(file == NULL)
 	{
-	printf("Arquivo nÃ£o localizado!\n");
+	printf("Arquivo não localizado!\n");
 }	
 
 	while(fgets(conteudo, 100, file) !=NULL)
 
 	{
-		printf("\nEssas sÃ£s as informaÃ§Ãµes do usuÃ¡rio:");
+		printf("\nEssas sãs as informações do usuário:");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -97,7 +97,7 @@ int deletar ()
 		
 		if(file ==NULL)
 		{
-			printf("O usuÃ¡rio nÃ£o se encontra no sistema!\n");			system("pause");
+			printf("O usuário não se encontra no sistema!\n");			system("pause");
 			
 		}
 		
@@ -106,7 +106,7 @@ int deletar ()
 int main()
 
 	{	
-	int opcao=0; //Definindo as variÃ¡veis
+	int opcao=0; //Definindo as variáveis
 	int x=1;
 	
 	for(x=1;x=1;)
@@ -115,14 +115,15 @@ int main()
 		
 		setlocale(LC_ALL, "Portuguese"); // Definindo a linguagem
 		
-		printf("###CartÃ³rio CÃ³digo###\n\n"); //InÃ­cio do menu
-		printf ("Escolha a opÃ§Ã£o desejada do menu:\n\n");
+		printf("###Cartório Código###\n\n"); //Início do menu
+		printf ("Escolha a opção desejada do menu:\n\n");
 		printf ("\t1 - Registrar os nomes\n");
 		printf ("\t2 - Consultar os nomes\n");
 		printf ("\t3 - Deletar os nomes\n\n\n");
-		printf("OpÃ§ao");// Fim do menu
+		printf ("\t4 - Sair do sistema!\n\n");
+		printf("Opçao");// Fim do menu
 	
-		scanf("%d", &opcao);//Armazenando a escolha do usuÃ¡rio
+		scanf("%d", &opcao);//Armazenando a escolha do usuário
 	
 		system("cls");
 		
@@ -139,16 +140,22 @@ int main()
 			case 3:
 			deletar();
 			break;
+			
+			case 4:
+			printf("Obrigada por utilizar o sistema!\n");
+			return 0;
+			break;
+			
 						
 			default:
-			printf("OpcÃ£o invÃ¡lida\n");
+			printf("Opcão inválida\n");
 			system("pause");
 			break;
 		}
 		
 	
 		
-	}//Fim da seleÃ§Ã£o
+	}//Fim da seleção
 	
 }
 
